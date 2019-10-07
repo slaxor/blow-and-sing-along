@@ -22,6 +22,7 @@ HornMidi = {
 
 \paper {
   #(set-paper-size "a4")
+  indent = 0\cm
 }
 
 \layout {
@@ -86,14 +87,17 @@ HornStimme = \relative c' {
 
 LyricsOne = \lyricmode {
   \set stanza = #"1. "
-  Rest a- while you cru- el cares.
-  Be not more se- vere than love.
-  Beau- ty kills and beau- ty spares
-  And sweet smiles sad sighs re- move:
-  Lau- ra, fair queen of my de- light
+  Rest a -- while you cru -- el cares.
+  Be not more se -- vere than love.
+  Beau -- ty kills and beau -- ty spares
+  And sweet smiles sad sighs re -- move:
+  Lau -- ra, fair queen of my de -- light
   Come grant me love in love's de -- spite
-  And if I ev- er fail to_ hon- our thee
-  Let this hea- ven- - ly light I see
+  And if I ev -- er fail to_ hon -- our thee
+}
+
+LyricsRefrain = \lyricmode {
+  Let this hea -- ven __ _ ly light I see
   Be as dark as hell to me
 }
 
@@ -101,22 +105,22 @@ LyricsTwo = \lyricmode {
   \set stanza = #"2. "
   If I speak, my words want weight
   Am I mute, my heart doth break
-  If I sigh, she fears de- ceit
-  Sor- row then for me must speak:
-  Cru- el un- kind, with fa- vour view
+  If I sigh, she fears de -- ceit
+  Sor -- row then for me must speak:
+  Cru -- el un -- kind, with fa -- vour view
   The wound that first was made by you:
-  And if my tor- ments fei- - - gned be
+  And if my tor __ _  -- ments fei __  _ -- gned be
 }
 
 LyricsThree = \lyricmode {
   \set stanza = #"3. "
-  Ne- ver hour of plea- sing rest
-  Shall re- vive my dy- ing gost
-  Till my soul hath re- po- ssess'd
+  Ne -- ver hour of plea -- sing rest
+  Shall re -- vive my dy -- ing ghost
+  Till my soul hath re -- po -- ssess'd
   The sweet hope which love hath lost:
-  Lau- ra re- deem the soul that dies
-  By fu- ry of thy mur- der- ing eyes:
-  And if it prove un- - kind to thee
+  Lau -- ra re -- deem the soul that dies
+  By fu -- ry of thy murder -- ing eyes:
+  And if it pro -- ve un __ _ kind to thee
 }
 
 
@@ -127,6 +131,7 @@ LyricsThree = \lyricmode {
     }
     \new Lyrics \lyricsto "one" {
       \LyricsOne
+      \LyricsRefrain
     }
     \new Lyrics \lyricsto "one" {
       \LyricsTwo
@@ -141,7 +146,16 @@ LyricsThree = \lyricmode {
 %       \DritteStrophe
 %     }
   >>
-  \layout {}
+  \layout {
+    \context {
+      \Lyrics
+%       \override VerticalAxisGroup.staff-affinity = ##f
+%       \override VerticalAxisGroup.staff-staff-spacing =
+%         #'((basic-distance . 0)
+%      (minimum-distance . 2)
+%      (padding . 2))
+    }
+  }
   \midi {
     \HornMidi
   }

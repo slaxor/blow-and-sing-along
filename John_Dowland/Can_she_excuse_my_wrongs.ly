@@ -23,6 +23,7 @@ HornMidi = {
 \paper {
   #(set-paper-size "a4")
 %   annotate-spacing = ##t
+  indent = 0\cm
 }
 
 \layout {
@@ -122,7 +123,7 @@ LyricsEight = \lyricmode {
 }
 LyricsNine = \lyricmode {
       \set stanza = #"9. "
-      Dear make me hap -- py still be gran -- ting this
+      Dear make me hap -- py still by gran -- ting this
       Or cut off de -- lays if that die I must
 }
 LyricsTen = \lyricmode {
